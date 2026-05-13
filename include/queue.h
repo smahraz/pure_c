@@ -1,6 +1,8 @@
 #ifndef PURE_C_QUEUE
 # define PURE_C_QUEUE
+
 # include <pthread.h>
+# include <stdbool.h>
 
 
 typedef struct QueueNode {
@@ -20,11 +22,14 @@ typedef struct Queue {
 
 } Queue;
 
+
 Queue* queue_init(void);
 QueueNode* queue_get(Queue *q);
 void queue_free(Queue* q, void (*func)(void *));
 QueueNode* queue_put(Queue* q, void* data);
 size_t queue_lenght(Queue* q);
+bool is_queue_empty(Queue* q);
+
 
 #endif 
 

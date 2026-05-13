@@ -1,10 +1,10 @@
-
 #include "queue.h"
-#include <pthread.h>
 #include <stddef.h>
 #include <stdlib.h>
 
-Queue* queue_init(void){
+
+
+Queue* queue_init(void) {
   Queue* q = malloc(sizeof(struct Queue));
   
   if (q == NULL)
@@ -76,4 +76,8 @@ size_t queue_lenght(Queue* q) {
   len = q->lenght;
   pthread_mutex_unlock(&q->mutex);
   return (len);
+}
+
+bool is_queue_empty(Queue* q) {
+  return queue_lenght(q) == 0;
 }
