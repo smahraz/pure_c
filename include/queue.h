@@ -16,13 +16,15 @@ typedef struct Queue {
 
   pthread_mutex_t mutex;
 
+  size_t lenght;
+
 } Queue;
-
-
-#endif 
 
 Queue* queue_init(void);
 QueueNode* queue_get(Queue *q);
 void queue_free(Queue* q, void (*func)(void *));
 QueueNode* queue_put(Queue* q, void* data);
-size_t queue_len(Queue* q);
+size_t queue_lenght(Queue* q);
+
+#endif 
+
