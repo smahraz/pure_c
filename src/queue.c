@@ -1,4 +1,4 @@
-#include "queue.h"
+#include "pure_c/queue.h"
 #include <stddef.h>
 #include <stdlib.h>
 

@@ -1,4 +1,4 @@
-#include "queue.h"
+#include "pure_c/queue.h"
 #include <stdbool.h>
 #include <stdlib.h>
 
@@ -11,7 +11,7 @@ bool test_len_and_free_func()
     queue_put(q, malloc(sizeof(int)));
   }
 
-  if (queue_lenght(q) != 10)
+  if (queue_length(q) != 10)
     return true;
   
   queue_free(q, &free);

@@ -1,3 +1,4 @@
+#! bash
 
 compile_and_test () {
   echo At $1:
