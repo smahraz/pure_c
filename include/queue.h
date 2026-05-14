@@ -18,7 +18,7 @@ typedef struct Queue {
 
   pthread_mutex_t mutex;
 
-  size_t lenght;
+  size_t length;
 
 } Queue;
 
@@ -27,7 +27,7 @@ Queue* queue_init(void);
 QueueNode* queue_get(Queue *q);
 void queue_free(Queue* q, void (*func)(void *));
 QueueNode* queue_put(Queue* q, void* data);
-size_t queue_lenght(Queue* q);
+size_t queue_length(Queue* q);
 bool is_queue_empty(Queue* q);
 
 

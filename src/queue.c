@@ -17,7 +17,7 @@ Queue* queue_init(void) {
 
   q->head = NULL;
   q->tail = NULL;
-  q->lenght = 0;
+  q->length = 0;
   return q;
 }
 
@@ -41,7 +41,7 @@ QueueNode* queue_get(Queue *q) {
     q->head = node->next;
     if (q->tail == node)
       q->tail = NULL;
-    q->lenght--;
+    q->length--;
   }
   pthread_mutex_unlock(&q->mutex);
   return node;
@@ -63,21 +63,21 @@ QueueNode* queue_put(Queue* q, void *data) {
       q->tail->next = node;
       q->tail = node;
     }
-    q->lenght++;
+    q->length++;
   pthread_mutex_unlock(&q->mutex);
 
   return node;
 }
 
-size_t queue_lenght(Queue* q) {
+size_t queue_length(Queue* q) {
   size_t len;
 
   pthread_mutex_lock(&q->mutex);
-  len = q->lenght;
+  len = q->length;
   pthread_mutex_unlock(&q->mutex);
   return (len);
 }
 
 bool is_queue_empty(Queue* q) {
-  return queue_lenght(q) == 0;
+  return queue_length(q) == 0;
 }
